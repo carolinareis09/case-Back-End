@@ -1,0 +1,73 @@
+Pessoa = dict()
+
+# Menu de opções
+while True:
+    print("--------------- M E N U ---------------")
+    print("[1] - Cadastrar novo funcionário")
+    print("[2] - Localizar cadastro de funcionário")
+    print("[3] - Alterar cadastro de funcionário")
+    print("[4] - Excluir cadastro de funcionário")
+    print("[5] - Sair")
+    print("---------------------------------------")
+    
+    Selecao = input("Selecione a opção desejada: ")
+    
+    
+# Cadastro de funcionário   
+    if Selecao == "1":
+       
+        NomeCompleto = str(input("Nome completo: "))
+        DataNascimento = input("Data de nascimento: ")
+        CPF = input("Número do CPF: ")
+        Endereco = input("Endereço completo: ")
+        EstadoCivil = input("Estado Civil: ")
+        Pessoa[NomeCompleto] = {"Nome" : NomeCompleto, "DataNascimento" : DataNascimento, "CPF" : CPF, "Endereco" : Endereco, "EstadoCivil" : EstadoCivil}
+        print("Cadastro finalizado!")
+     
+     
+# Consulta de funcionário  
+    elif Selecao == "2":
+        NomeCompleto = str(input("Funcionário a localizar: "))
+
+        if NomeCompleto in Pessoa:
+            print(NomeCompleto)
+            print(DataNascimento)
+            print(CPF)
+            print(Endereco)
+            print(EstadoCivil)
+        else:
+            print("Cadastro não encontrado, tente novamente!")
+        
+
+# Atualização de funcionário          
+    elif Selecao == "3":
+        NomeCompleto = str(input("Funcionário a atualizar: "))
+        
+        if NomeCompleto in Pessoa:
+            Endereco = input("Novo endereço: ")
+            EstadoCivil = input("Novo estado civil: ")
+            Pessoa[NomeCompleto]["Endereco"] = Endereco
+            Pessoa[NomeCompleto]["EstadoCivil"] = EstadoCivil
+            print("Cadastro atualizado!")
+        else:
+            print("Cadastro não encontrado, tente novamente!")
+    
+
+# Exclusão de funcionário         
+    elif Selecao == "4":
+        NomeCompleto = str(input("Funcionário a excluir: "))
+    
+        if NomeCompleto in Pessoa:
+            del Pessoa[NomeCompleto]
+            print("Cadastro excluído com sucesso!")
+        else:
+            print("Cadastro não encontrado, tente novamente!")
+        
+
+# Sair do programa          
+    elif Selecao == "5":
+        print("Saindo do sistema...")
+        break
+    if (Selecao > "5") or (Selecao < "1"):
+        print("Opção incorreta, tente novamente!")    
+      
